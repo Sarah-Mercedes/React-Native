@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, ScrollView, FlatList,
     Modal, Button, StyleSheet,
     Alert, PanResponder } from 'react-native';
-import { Card, Icon, Input } from 'react-native-elements';
+import { Card, Icon, Input, Rating } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
 import { postComment, postFavorite } from '../redux/ActionCreators';
@@ -70,7 +70,7 @@ function RenderCampsite(props) {
             {...panResponder.panHandlers}>
             <Card
                 featuredTitle={campsite.name}
-                image={{url: baseUrl + campsite.image}}>
+                image={{uri: baseUrl + campsite.image}}>
 
                 <Text style={{margin: 10}}>
                     {campsite.description}
@@ -203,14 +203,14 @@ class CampsiteInfo extends Component {
                     <Input
                        placeholder="Author"
                        leftIcon={{ type: 'font-awesome', name: 'user-o' }}
-                       leftIconContainerStyle={{paddingRight=10}}
+                       leftIconContainerStyle={{paddingRight:10}}
                        onChangeText={value => this.setState({ comment: value })}
 
                     />
                      <Input
                        placeholder="Comment"
                        leftIcon={{ type: 'font-awesome', name: 'comment-o' }}
-                       leftIconContainerStyle={{paddingRight=10}}
+                       leftIconContainerStyle={{paddingRight:10}}
                        onChangeText={value => this.setState({ comment: value })}
 
                     />
